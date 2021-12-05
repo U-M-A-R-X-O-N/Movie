@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./bootstrap-5/css/bootstrap.css">
+  <!-- <link rel="stylesheet" href="./style.css"> -->
+  <title>Avengers and Iron man</title>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h1 class="h1 text-center">Movies catalog</h1>
+
+    <section class="row pt-3 pb-3">
+
+      <div class="col-4">
+        <form class="bg-white">
+
+          <input type="text" class="form-control mb-3" id="exampleInputText" aria-describedby="textlHelp"
+            placeholder="Name">
+
+          <input type="number" class="form-control mb-3" id="exampleInputNumber" aria-describedby="numberlHelp"
+            placeholder="Age">
+
+          <select class="form-select mb-3" aria-label="hero">
+            <option selected hidden>Hero</option>
+            <option value="Iron Man">Iron Man</option>
+            <option value="Captain America">Captain America</option>
+            <option value="Hulk">Hulk</option>
+            <option value="Wonder Woman Man">Wonder Woman</option>
+            <option value="Tor">Tor</option>
+          </select>
+
+          <select class="form-select mb-3" aria-label="star">
+            <option selected hidden>Reting</option>
+            <option value="1">1.0&#11088</option>
+            <option value="2">2.0&#11088</option>
+            <option value="3">3.0&#11088</option>
+            <option value="4">4.0&#11088</option>
+            <option value="5">5.0&#11088</option>
+          </select>
+
+          <button type="submit" class="btn btn-primary w-100">Search</button>
+
+        </form>
+
+        <div class="mt-4">
+          <h2 class="h2">
+            Bookmarket movies
+          </h2>
+          <div class="border p-3 rounded-top">
+            <p class="fw-bold mb-1">
+              Avengers : Infinty War
+            </p>
+
+            <button type="button" class="btn btn-danger">Remove</button>
+          </div>
+
+          <div class="border p-3 border-top-0">
+            <p class="fw-bold mb-1">
+              The Avengers
+            </p>
+
+            <button type="button" class="btn btn-danger">Remove</button>
+          </div>
+
+          <div class="border p-3 border-top-0 rounded-bottom">
+            <p class="fw-bold mb-1">
+              12 years a Slave
+            </p>
+
+            <button type="button" class="btn btn-danger">Remove</button>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col">
+        <p class="fs-5 fw-bold">
+          Search results: 77
+        </p>
+
+        <div class="alert alert-primary" role="alert">
+          Use the form on the left to search for amovie
+        </div>
+
+        <div class="d-flex flex-wrap justify-content-between" id="cinema">
+          <div class="bg-white lorem" id="block">
+            <img class="photos rounded-top"  id="images" src="./img/avengers.jpg" alt="this image" width="350"
+              height="230">
+            <div class="blocks border p-3" id="text">
+              <h3 class="h4 title w-75" id="title">Avengers: Infinty War</h3>
+              <p class="premiere" id="year">&#128197 2018</p>
+              <p class="grade" id="star">&#11088 5.0</p>
+
+              <div class="small-lorem d-flex align-items-center justify-content-between" id="btn-link">
+              
+                <a href="#" class="btn btn-outline-info" id="source">Watch trailer</a>
+                <button type="button" class="btn btn-outline-info">More info</button>
+                <button type="button" class="btn btn-outline-info">Bookmark</button>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white mb-3" id="block">
+            <img class="photos rounded-top" id="images" src="./img/iron_man.jpg" alt="this image" width="350"
+              height="230">
+            <div class="border p-3 rounded-bottom">
+              <h3 class="name h4">The Iron Man</h3>
+              <p class="start" id="year">&#128197 2021</p>
+              <p class="grade" id="star">&#11088 4.8</p>
+
+              <div class="d-flex align-items-center justify-content-between">
+
+                <button type="button" class="push btn btn-outline-info" id="source">Watch trailer</button>
+                <button type="button" class="btn btn-outline-info">More info</button>
+                <button type="button" class="btn btn-outline-info">Bookmark</button>
+
+              </div>
+            </div>
+          </div>
+
+          <!-- <div class="bg-white" id="block">
+            <img class="photos rounded-top" id="images" src="./img/avengers.jpg" alt="this image" width="350" height="230">
+            <div class="blocks border p-3 rounded-bottom">
+              <h3 class="name h4" id="title">Avengers: Infinty War</h3>
+              <p class="start" id="year">&#128197 2018</p>
+              <p class="grade" id="star">&#11088 5.0</p>
+
+              <div class="d-flex align-items-center justify-content-between">
+
+                <button type="button" class="push btn btn-outline-info" id="source">Watch trailer</button>
+                <button type="button" class="btn btn-outline-info">More info</button>
+                <button type="button" class="btn btn-outline-info">Bookmark</button>
+
+              </div>
+            </div>
+          </div> -->
+
+        </div>
+
+        <div class="d-flex active justify-content-center mt-3" role="group" aria-label="one group">
+          <button type="button" class="btn border bg-primary">1</button>
+          <button type="button" class="btn border bg-light">2</button>
+          <button type="button" class="btn border bg-light">3</button>
+          <button type="button" class="btn border bg-light">4</button>
+        </div>
+      </div>
+
+    </section>
+  </div>
+
+  <script src="./javascript/movies.js"></script>
+  <script src="./javascript/main.js"></script>
+  <link rel="stylesheet" href="./bootstrap-5/js/bootstrap.js">
+</body>
+
+</html>
