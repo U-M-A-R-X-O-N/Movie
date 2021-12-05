@@ -71,4 +71,3 @@ for (let i = 0; i <= avengersMarvel.length; i++) {
 }
 
 console.log(elCinema);
-
