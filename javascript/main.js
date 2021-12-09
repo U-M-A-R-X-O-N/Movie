@@ -97,11 +97,10 @@ elSearchText.addEventListener("input", (evt) => {
     }
   });
 
-  if(addSearchMovie.length > 0) {
+  if (addSearchMovie.length > 0) {
     elCinema.innerHTML = null;
     renderMovies(addSearchMovie, elCinema);
   } else {
     elCinema.innerHTML = "Bunday nomli kino yo'q!";
   }
-
 });
