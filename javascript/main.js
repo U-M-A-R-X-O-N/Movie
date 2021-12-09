@@ -1,19 +1,3 @@
-// console.log(newNormalizeMovies);
-
-// // let result = newNormalizeMovies.title.
-
-// // console.log(result);
-// let searchedMovies = []
-
-// newNormalizeMovies.forEach(function (moviesItem){
-//   let check = moviesItem.title.match(searchMovieText);
-
-//   if(check){
-//     searchedMovies.push(moviesItem)
-//   }
-
-// })
-
 let avengersMarvel = movies.slice(0, 40);
 
 let elCinema = document.querySelector("#cinema");
