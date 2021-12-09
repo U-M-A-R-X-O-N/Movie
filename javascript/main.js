@@ -1,73 +1,123 @@
-let avengersMarvel = movies.slice(20, 40);
+// console.log(newNormalizeMovies);
+
+// // let result = newNormalizeMovies.title.
+
+// // console.log(result);
+// let searchedMovies = []
+
+// newNormalizeMovies.forEach(function (moviesItem){
+//   let check = moviesItem.title.match(searchMovieText);
+
+//   if(check){
+//     searchedMovies.push(moviesItem)
+//   }
+
+// })
+
+let avengersMarvel = movies.slice(0, 40);
 
 let elCinema = document.querySelector("#cinema");
+let elFilms = document.querySelector("#films");
+let elSearchText = document.querySelector("#exampleInputText");
+let elSearchNumber = document.querySelector("#exampleInputNumber");
 
 elCinema.innerHTML = null;
 
-for (let i = 0; i <= avengersMarvel.length; i++) {
-  let newBlock = document.createElement("div");
-  let newBlocktTag = document.createElement("div");
-  let newBlocktTagBtn = document.createElement("div");
-  let newImage = document.createElement("img");
-  let newHeader = document.createElement("h5");
-  let newParagraphYear = document.createElement("p");
-  let newParagraphStar = document.createElement("p");
-  let newBtnLink = document.createElement("a");
-  let newBtnFirst = document.createElement("button");
-  let newBtnSecond = document.createElement("button");
+let newNormalizeMovies = avengersMarvel.map((movieItem) => ({
+  title: movieItem.Title.toString(),
+  categories: movieItem.Categories,
+  rating: movieItem.imdb_rating,
+  year: movieItem.movie_year,
+  imageUrl: `http://i3.ytimg.com/vi/${movieItem.ytid}/maxresdefault.jpg`,
+  youtubeUrl: `https://www.youtube.com/watch?v=${movieItem.ytid}`,
+}));
+console.log(newNormalizeMovies);
 
-  newBlock.setAttribute("class", "bg-white mb-3");
+function renderMovies(moviesArr, cinema) {
+  moviesArr.forEach((movie) => {
+    let newBlock = document.createElement("div");
+    let newBlocktTag = document.createElement("div");
+    let newBlocktTagBtn = document.createElement("div");
+    let newImage = document.createElement("img");
+    let newHeader = document.createElement("h4");
+    let newParagraphYear = document.createElement("p");
+    let newParagraphStar = document.createElement("p");
+    let newBtnLink = document.createElement("a");
+    let newBtnFirst = document.createElement("button");
+    let newBtnSecond = document.createElement("button");
 
-  newImage.setAttribute("class", "rounded-top");
-  newImage.setAttribute(
-    "src",
-    `http://i3.ytimg.com/vi/${avengersMarvel[i].ytid}/maxresdefault.jpg`
-  );
-  newImage.setAttribute("alt", "this image");
-  newImage.setAttribute("width", "350");
-  newImage.setAttribute("height", "230");
+    newBlock.setAttribute("class", "bg-white mb-3");
 
-  newBlocktTag.setAttribute("class", "border p-3");
+    newImage.setAttribute("class", "rounded-top");
+    newImage.setAttribute("src", movie.imageUrl);
+    newImage.setAttribute("alt", "this image");
+    newImage.setAttribute("width", "350");
+    newImage.setAttribute("height", "230");
 
-  newHeader.setAttribute("class", "h5 text-sucsses");
-  newHeader.textContent = avengersMarvel[i].Title;
+    newBlocktTag.setAttribute("class", "border p-3");
 
-  newParagraphYear.setAttribute("class", "bg-white");
-  newParagraphYear.textContent = "Year: " + avengersMarvel[i].movie_year;
+    newHeader.setAttribute("class", "h4 text-sucsses");
+    newHeader.textContent = movie.title;
 
-  newParagraphStar.setAttribute("class", "bg-white");
-  newParagraphStar.textContent = "Star: " + avengersMarvel[i].imdb_rating;
+    newParagraphYear.setAttribute("class", "bg-white");
+    newParagraphYear.textContent = "Year: " + movie.year;
 
-  newBlocktTagBtn.setAttribute(
-    "class",
-    "d-flex align-items-center justify-content-between"
-  );
+    newParagraphStar.setAttribute("class", "bg-white");
+    newParagraphStar.textContent = "Star: " + movie.rating;
 
-  newBtnLink.setAttribute("class", "btn  btn-outline-info");
-  newBtnLink.setAttribute(
-    "href",
-    `https://www.youtube.com/watch?v=${avengersMarvel[i].ytid}`
-  );
-  newBtnLink.textContent = "Watch trailer";
+    newBlocktTagBtn.setAttribute(
+      "class",
+      "d-flex align-items-center justify-content-between"
+    );
 
-  newBtnFirst.setAttribute("class", "btn  btn-outline-info");
-  newBtnFirst.textContent = "More info";
+    newBtnLink.setAttribute("class", "btn  btn-outline-info");
+    newBtnLink.setAttribute("href", movie.youtubeUrl);
+    newBtnLink.textContent = "Watch trailer";
 
-  newBtnSecond.setAttribute("class", "btn  btn-outline-info");
-  newBtnSecond.textContent = "Bookmark";
+    newBtnFirst.setAttribute("class", "btn  btn-outline-info");
+    newBtnFirst.textContent = "More info";
 
-  elCinema.appendChild(newBlock);
-  newBlock.appendChild(newImage);
-  newBlock.appendChild(newBlocktTag);
+    newBtnSecond.setAttribute("class", "btn  btn-outline-info");
+    newBtnSecond.textContent = "Bookmark";
 
-  newBlocktTag.appendChild(newHeader);
-  newBlocktTag.appendChild(newParagraphYear);
-  newBlocktTag.appendChild(newParagraphStar);
-  newBlocktTag.appendChild(newBlocktTagBtn);
+    cinema.appendChild(newBlock);
+    newBlock.appendChild(newImage);
+    newBlock.appendChild(newBlocktTag);
 
-  newBlocktTagBtn.appendChild(newBtnLink);
-  newBlocktTagBtn.appendChild(newBtnFirst);
-  newBlocktTagBtn.appendChild(newBtnSecond);
+    newBlocktTag.appendChild(newHeader);
+    newBlocktTag.appendChild(newParagraphYear);
+    newBlocktTag.appendChild(newParagraphStar);
+    newBlocktTag.appendChild(newBlocktTagBtn);
+
+    newBlocktTagBtn.appendChild(newBtnLink);
+    newBlocktTagBtn.appendChild(newBtnFirst);
+    newBlocktTagBtn.appendChild(newBtnSecond);
+  });
 }
 
-console.log(elCinema);
+renderMovies(newNormalizeMovies, elCinema);
+
+elSearchText.addEventListener("input", (evt) => {
+  evt.preventDefault();
+
+  let addSearchMovie = [];
+
+  var loremMovie = elSearchText.value.trim();
+
+  let searchMovieText = new RegExp(loremMovie, "gi");
+
+  newNormalizeMovies.forEach((movieItem) => {
+    let searchResult = movieItem.title.match(searchMovieText);
+    if (searchResult) {
+      addSearchMovie.push(movieItem);
+    }
+  });
+
+  if(addSearchMovie.length > 0) {
+    elCinema.innerHTML = null;
+    renderMovies(addSearchMovie, elCinema);
+  } else {
+    elCinema.innerHTML = "Bunday nomli kino yo'q!";
+  }
+
+});
